@@ -1,9 +1,10 @@
 package com.example.VeloVault.components;
 
+import com.example.VeloVault.models.Booking;
 import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.subCatagory.Tent;
-import com.example.VeloVault.models.mainCatagory.subCatagory.individualItem.SnuggleZone;
+import com.example.VeloVault.repositories.BookingRepository;
 import com.example.VeloVault.repositories.ItemRepository;
 import com.example.VeloVault.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,29 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BookingRepository bookingRepository;
+
+
     public DataLoader() {
     }
 
     public void run(ApplicationArguments args){
 
-        User user1 = new User("Steve John", "sj@bike.com", null, null);
+        User user1 = new User("Steve", "steve@bike.com");
+        userRepository.save(user1);
 
-        Item snuggleZone = new SnuggleZone("SnuggleZone", "CuddleTimes", null, null, user1, 2000, 2, "30cm x 10cm x 15cm", true, "poles");
+        User user2 = new User("John", "wkerjgh");
+        userRepository.save(user2);
+
+        Item tent1 = new Tent("SNuggleZone", "cosyTime", null, null, user1, 2000, 2, "30cm x 30cm", true, "poles");
+        itemRepository.save(tent1);
+
+        Booking booking1 = new Booking("10/12/2020", "15/12/2020", user1, tent1);
+//        TODO: user1 should be the user1 id
+        bookingRepository.save(booking1);
+
+
 
 
     }

@@ -6,13 +6,13 @@ import com.example.VeloVault.models.User;
 import javax.persistence.*;
 import java.util.List;
 
-
-@Table(name = "camping")
+@Entity
+@Table(name = "campingItems")
 public abstract class Camping extends Item {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "weight")
     private int weight;
@@ -23,6 +23,14 @@ public abstract class Camping extends Item {
     }
 
     public Camping() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getWeight() {

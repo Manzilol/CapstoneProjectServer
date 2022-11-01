@@ -10,10 +10,6 @@ import java.util.List;
 @Table(name = "items")
 public abstract class Item {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
     @Column(name = "name")
     private String name;
 
@@ -27,27 +23,20 @@ public abstract class Item {
     private List<String> comments;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "owner_id", nullable = false)
     private User user;
 
     public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user) {
         this.name = name;
         this.brand = brand;
-        this.ratings = ratings;
-        this.comments = comments;
+        this.ratings = new ArrayList<>();
+        this.comments = new ArrayList<>();
         this.user = user;
     }
 
     public Item() {
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public String getName() {
         return name;

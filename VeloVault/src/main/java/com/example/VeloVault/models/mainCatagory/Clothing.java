@@ -1,4 +1,4 @@
 package com.example.VeloVault.models.mainCatagory;
 
-public class Clothing {
+public abstract class Clothing {
 }

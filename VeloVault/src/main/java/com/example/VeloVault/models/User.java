@@ -3,6 +3,7 @@ package com.example.VeloVault.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,14 +28,15 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> borrowedItems;
 
-    public User(String name, String email, List<Item> myItems, List<Item> borrowedItems) {
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
-        this.myItems = myItems;
-        this.borrowedItems = borrowedItems;
+        this.myItems = new ArrayList<>();
+        this.borrowedItems = new ArrayList<>();
     }
 
     public User() {
+
     }
 
     public Long getId() {
