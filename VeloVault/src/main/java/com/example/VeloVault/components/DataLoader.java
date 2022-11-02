@@ -3,9 +3,8 @@ package com.example.VeloVault.components;
 import com.example.VeloVault.models.Booking;
 import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
-import com.example.VeloVault.models.mainCatagory.subCatagory.Insulated;
-import com.example.VeloVault.models.mainCatagory.subCatagory.Tent;
-import com.example.VeloVault.models.mainCatagory.subCatagory.Waterproof;
+import com.example.VeloVault.models.mainCatagory.Cooking;
+import com.example.VeloVault.models.mainCatagory.subCatagory.*;
 import com.example.VeloVault.repositories.BookingRepository;
 import com.example.VeloVault.repositories.ItemRepository;
 import com.example.VeloVault.repositories.UserRepository;
@@ -60,6 +59,23 @@ public class DataLoader implements ApplicationRunner {
 
         Booking booking3 = new Booking("03/03/2022", "07/03/2022", user2, waterproof1);
         bookingRepository.save(booking3);
+
+        Item crockery1 = new Crockery("pot", "john lewis", null, null, user1, 100, 30, 4);
+        itemRepository.save(crockery1);
+
+        Booking booking4 = new Booking("12/02/2023", "18/02/2023", user2, crockery1);
+        bookingRepository.save(booking4);
+
+        Item stove1 = new Stove("gassy", "sprakies", null, null, user2, 100, 100, "gas", false);
+        itemRepository.save(stove1);
+
+        Booking booking5 = new Booking("12/04/2023", "17/04/2023", user1, stove1);
+        bookingRepository.save(booking5);
+
+        Item lighting1 = new Lighting("super bright", "maglite", null, null, user1, true, 1000, "LED");
+
+        Booking booking6 = new Booking("12/03/2023", "20?03", user2, lighting1);
+        bookingRepository.save(booking6);
 
 
 
