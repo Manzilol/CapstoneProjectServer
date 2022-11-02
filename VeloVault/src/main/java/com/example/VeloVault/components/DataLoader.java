@@ -3,7 +3,7 @@ package com.example.VeloVault.components;
 import com.example.VeloVault.models.Booking;
 import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
-import com.example.VeloVault.models.mainCatagory.Cooking;
+import com.example.VeloVault.models.mainCatagory.Bag;
 import com.example.VeloVault.models.mainCatagory.subCatagory.*;
 import com.example.VeloVault.repositories.BookingRepository;
 import com.example.VeloVault.repositories.ItemRepository;
@@ -13,9 +13,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Profile("!test")
 @Component
@@ -112,6 +109,18 @@ public class DataLoader implements ApplicationRunner {
 
         Booking booking12 = new Booking("12/03/2023", "16/03/2023", user2, sleepingBag1);
         bookingRepository.save(booking12);
+
+        Item sleepingmat1 = new SleepingMat("Matt", "Flats", null, null, user1, 1000, 10, "5x5x5", "summer");
+        itemRepository.save(sleepingmat1);
+
+        Booking booking13 = new Booking("12/03/2023", "16/03/2023", user2, sleepingmat1);
+        bookingRepository.save(booking13);
+
+        Item bag1 = new Bag("bag", "baggiltons", null, null, user1, "frame", 10);
+        itemRepository.save(bag1);
+
+        Booking booking14 = new Booking("12/03/2023", "16/03/2023", user2, bag1);
+        bookingRepository.save(booking14);
 
 
 
