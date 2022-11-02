@@ -77,6 +77,42 @@ public class DataLoader implements ApplicationRunner {
         Booking booking6 = new Booking("12/03/2023", "20?03", user2, lighting1);
         bookingRepository.save(booking6);
 
+        Item powerbank1 = new PowerBank("banksy", "electros", null, null, user1, true, 1000, "10x10x2");
+        itemRepository.save(powerbank1);
+
+        Booking booking7 = new Booking("12/03/2023", "16/03/2023", user2, powerbank1);
+        bookingRepository.save(booking7);
+
+        Item navigation1 = new Navigation("tomtom", "garmin", null, null, user1, true);
+        itemRepository.save(navigation1);
+
+        Booking booking8 = new Booking("12/03/2023", "16/03/2023", user2, navigation1);
+        bookingRepository.save(booking8);
+
+        Item offRoad1 = new OffRoad("rough rider", "squeaky clean", null, null, user1, "L", "hardtail");
+        itemRepository.save(offRoad1);
+
+        Booking booking9 = new Booking("12/03/2023", "16/03/2023", user2, offRoad1);
+        bookingRepository.save(booking9);
+
+        Item road1 = new Road("super fast", "boardman", null, null, user2, "M", "disc");
+        itemRepository.save(road1);
+
+        Booking booking10 = new Booking("12/03/2023", "16/03/2023", user1, road1);
+        bookingRepository.save(booking10);
+
+        Item bivvyBag1 = new BivvyBag("bag", "bivvy", null, null, user2, 1000, "10x10x10", true);
+        itemRepository.save(bivvyBag1);
+
+        Booking booking11 = new Booking("12/03/2023", "16/03/2023", user1, bivvyBag1);
+        bookingRepository.save(booking11);
+
+        Item sleepingBag1 = new SleepingBag("bag", "snuggle", null, null, user1, 2000, "down", 16, "summer", "5x10x13");
+        itemRepository.save(sleepingBag1);
+
+        Booking booking12 = new Booking("12/03/2023", "16/03/2023", user2, sleepingBag1);
+        bookingRepository.save(booking12);
+
 
 
     }

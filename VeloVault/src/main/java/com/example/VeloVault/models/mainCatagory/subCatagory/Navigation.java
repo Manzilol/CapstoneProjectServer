@@ -1,4 +1,21 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
-public class Navigation {
+import com.example.VeloVault.models.User;
+import com.example.VeloVault.models.mainCatagory.Electronic;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import java.util.List;
+
+@Entity
+public class Navigation extends Electronic {
+
+    public Navigation(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable) {
+        super(name, brand, ratings, comments, user, rechargeable);
+    }
+
+    public Navigation() {
+    }
+
+
 }
