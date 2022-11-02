@@ -5,6 +5,7 @@ import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.subCatagory.Insulated;
 import com.example.VeloVault.models.mainCatagory.subCatagory.Tent;
+import com.example.VeloVault.models.mainCatagory.subCatagory.Waterproof;
 import com.example.VeloVault.repositories.BookingRepository;
 import com.example.VeloVault.repositories.ItemRepository;
 import com.example.VeloVault.repositories.UserRepository;
@@ -54,6 +55,11 @@ public class DataLoader implements ApplicationRunner {
         Booking booking2 = new Booking("12/12/2022", "24/12/2022", user1, insulated1);
         bookingRepository.save(booking2);
 
+        Item waterproof1 = new Waterproof("Jacket", "Patagonia", null, null, user1, "L", "10000mm");
+        itemRepository.save(waterproof1);
+
+        Booking booking3 = new Booking("03/03/2022", "07/03/2022", user2, waterproof1);
+        bookingRepository.save(booking3);
 
 
 
