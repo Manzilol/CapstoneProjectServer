@@ -3,6 +3,7 @@ package com.example.VeloVault.components;
 import com.example.VeloVault.models.Booking;
 import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
+import com.example.VeloVault.models.mainCatagory.subCatagory.Insulated;
 import com.example.VeloVault.models.mainCatagory.subCatagory.Tent;
 import com.example.VeloVault.repositories.BookingRepository;
 import com.example.VeloVault.repositories.ItemRepository;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Profile("!test")
-//@Component
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -45,8 +46,13 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(tent1);
 
         Booking booking1 = new Booking("10/12/2020", "15/12/2020", user1, tent1);
-//        TODO: user1 should be the user1 id
         bookingRepository.save(booking1);
+
+        Item insulated1 = new Insulated("Vest", "Northface", null, null, user2, "M", "synthetic");
+        itemRepository.save(insulated1);
+
+        Booking booking2 = new Booking("12/12/2022", "24/12/2022", user1, insulated1);
+        bookingRepository.save(booking2);
 
 
 

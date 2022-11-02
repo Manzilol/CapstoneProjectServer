@@ -1,4 +1,31 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
-public class Insulated {
+import com.example.VeloVault.models.User;
+import com.example.VeloVault.models.mainCatagory.Clothing;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import java.util.List;
+
+@Entity
+public class Insulated extends Clothing {
+
+    @Column(name = "insulationType")
+    private String insulationType;
+
+    public Insulated(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, String insulationType) {
+        super(name, brand, ratings, comments, user, size);
+        this.insulationType = insulationType;
+    }
+
+    public Insulated() {
+    }
+
+    public String getInsulationType() {
+        return insulationType;
+    }
+
+    public void setInsulationType(String insulationType) {
+        this.insulationType = insulationType;
+    }
 }
