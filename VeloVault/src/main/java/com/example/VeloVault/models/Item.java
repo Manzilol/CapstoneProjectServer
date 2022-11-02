@@ -1,5 +1,7 @@
 package com.example.VeloVault.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.security.acl.Owner;
 import java.util.ArrayList;
@@ -20,14 +22,16 @@ public abstract class Item {
     @Column(name = "brand")
     private String brand;
 
-    @Column(name = "ratings")
-    private List<Integer> ratings;
+    @JsonIgnoreProperties({"item"})
+    @OneToMany(mappedBy = "item")
+    private List<RatingsCollection> ratings;
 
-    @Column(name = "comments")
-    private List<String> comments;
+    @JsonIgnoreProperties({"item"})
+    @OneToMany(mappedBy = "item")
+    private List<CommentsCollection> comments;
 
     @ManyToOne
-    @JoinColumn(name = "owner_id", nullable = false)
+    @JoinColumn(name = "ownerId", nullable = false)
     private User user;
 
     public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user) {
@@ -65,19 +69,19 @@ public abstract class Item {
         this.brand = brand;
     }
 
-    public List<Integer> getRatings() {
+    public List<RatingsCollection> getRatings() {
         return ratings;
     }
 
-    public void setRatings(List<Integer> ratings) {
+    public void setRatings(List<RatingsCollection> ratings) {
         this.ratings = ratings;
     }
 
-    public List<String> getComments() {
+    public List<CommentsCollection> getComments() {
         return comments;
     }
 
-    public void setComments(List<String> comments) {
+    public void setComments(List<CommentsCollection> comments) {
         this.comments = comments;
     }
 

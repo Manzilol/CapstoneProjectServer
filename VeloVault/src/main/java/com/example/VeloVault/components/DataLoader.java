@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Profile("!test")
-@Component
+//@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
