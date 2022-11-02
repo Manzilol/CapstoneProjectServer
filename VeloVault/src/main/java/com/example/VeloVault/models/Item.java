@@ -5,10 +5,14 @@ import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Inheritance
-//@Entity
-@Table(name = "items")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Entity
+//@Table(name = "items")
 public abstract class Item {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -37,6 +41,13 @@ public abstract class Item {
     public Item() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

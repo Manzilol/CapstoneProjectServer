@@ -1,9 +1,6 @@
 package com.example.VeloVault.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "bookings")
@@ -19,18 +16,17 @@ public class Booking {
     @Column(name = "endDate")
     private String endDate;
 
-    @OneToOne(mappedBy = "borrower_id")
-    private User user_id;
-//    TODO: ask john
+    @ManyToOne
+    private User user;
 
-    @JoinColumn(name = "itemId")
-    private Item item_id;
+    @ManyToOne
+    private Item item;
 
     public Booking(String startDate, String endDate, User user, Item item) {
         this.startDate = startDate;
         this.endDate = endDate;
-        this.user_id = user;
-        this.item_id = item;
+        this.user = user;
+        this.item = item;
     }
 
     public Booking() {
@@ -60,19 +56,19 @@ public class Booking {
         this.endDate = endDate;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Item getItem_id() {
-        return item_id;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItem_id(Item item_id) {
-        this.item_id = item_id;
+    public void setItem(Item item) {
+        this.item = item;
     }
 }

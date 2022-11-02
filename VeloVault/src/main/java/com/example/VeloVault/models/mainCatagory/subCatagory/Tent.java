@@ -6,14 +6,11 @@ import com.example.VeloVault.models.mainCatagory.Camping;
 import javax.persistence.*;
 import java.util.List;
 
-@Inheritance
+//@Inheritance
 @Entity
-@Table(name = "tents")
+//@Table(name = "tents")
 public class Tent extends Camping {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(name = "capacity")
     private int capacity;
@@ -38,13 +35,6 @@ public class Tent extends Camping {
     public Tent() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public int getCapacity() {
         return capacity;
