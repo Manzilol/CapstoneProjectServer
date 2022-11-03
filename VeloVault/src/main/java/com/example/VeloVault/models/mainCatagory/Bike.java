@@ -8,19 +8,19 @@ import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
-public abstract class Bikes extends Item {
+public abstract class Bike extends Item {
 
     @Column(name= "size")
     private String size;
 
 
-    public Bikes(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size) {
+    public Bike(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size) {
         super(name, brand, ratings, comments, user);
         this.size = size;
 
     }
 
-    public Bikes() {
+    public Bike() {
     }
 
     public String getSize() {

@@ -70,6 +70,7 @@ public class DataLoader implements ApplicationRunner {
         bookingRepository.save(booking5);
 
         Item lighting1 = new Lighting("super bright", "maglite", null, null, user1, true, 1000, "LED");
+        itemRepository.save(lighting1);
 
         Booking booking6 = new Booking("12/03/2023", "20?03", user2, lighting1);
         bookingRepository.save(booking6);

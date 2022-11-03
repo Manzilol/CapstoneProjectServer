@@ -34,15 +34,28 @@ public abstract class Item {
     @JoinColumn(name = "ownerId", nullable = false)
     private User user;
 
+    @OneToMany(mappedBy = "item")
+    private List<Booking> bookings;
+
+
     public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user) {
         this.name = name;
         this.brand = brand;
         this.ratings = new ArrayList<>();
         this.comments = new ArrayList<>();
+        this.bookings = new ArrayList<>();
         this.user = user;
     }
 
     public Item() {
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
     public Long getId() {

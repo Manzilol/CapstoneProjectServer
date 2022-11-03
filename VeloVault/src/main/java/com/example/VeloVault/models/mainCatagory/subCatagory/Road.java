@@ -1,14 +1,14 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
 import com.example.VeloVault.models.User;
-import com.example.VeloVault.models.mainCatagory.Bikes;
+import com.example.VeloVault.models.mainCatagory.Bike;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
-public class Road extends Bikes {
+public class Road extends Bike {
 
     @Column(name = "brakeType")
     private String brakeType;

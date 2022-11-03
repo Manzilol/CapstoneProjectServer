@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Bag extends Item {
 
-    @Column(name = "bagLocation")
+    @Column(name = "bag_Location")
     private String bagLocation;
 
     @Column(name = "capacity")
