@@ -30,10 +30,12 @@ public abstract class Item {
     @OneToMany(mappedBy = "item")
     private List<CommentsCollection> comments;
 
+    @JsonIgnoreProperties({"item", "myItems", "borrowedItems"})
     @ManyToOne
     @JoinColumn(name = "ownerId", nullable = false)
     private User user;
 
+    @JsonIgnoreProperties({"item"})
     @OneToMany(mappedBy = "item")
     private List<Booking> bookings;
 

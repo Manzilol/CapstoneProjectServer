@@ -1,13 +1,9 @@
 package com.example.VeloVault.components;
 
-import com.example.VeloVault.models.Booking;
-import com.example.VeloVault.models.Item;
-import com.example.VeloVault.models.User;
+import com.example.VeloVault.models.*;
 import com.example.VeloVault.models.mainCatagory.Bag;
 import com.example.VeloVault.models.mainCatagory.subCatagory.*;
-import com.example.VeloVault.repositories.BookingRepository;
-import com.example.VeloVault.repositories.ItemRepository;
-import com.example.VeloVault.repositories.UserRepository;
+import com.example.VeloVault.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -15,7 +11,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Profile("!test")
-@Component
+//@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -26,6 +22,12 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     BookingRepository bookingRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
+
+    @Autowired
+    RatingRepository ratingRepository;
 
 
     public DataLoader() {
@@ -123,7 +125,10 @@ public class DataLoader implements ApplicationRunner {
         Booking booking14 = new Booking("12/03/2023", "16/03/2023", user2, bag1);
         bookingRepository.save(booking14);
 
+        CommentsCollection comment1 = new CommentsCollection("This item STINKS", bag1);
+        commentRepository.save(comment1);
 
-
+        RatingsCollection rating1 = new RatingsCollection(5, bag1);
+        ratingRepository.save(rating1);
     }
 }

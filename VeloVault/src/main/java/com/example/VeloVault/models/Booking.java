@@ -1,5 +1,8 @@
 package com.example.VeloVault.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,9 +20,12 @@ public class Booking {
     private String endDate;
 
     @ManyToOne
+    @JsonIgnoreProperties({"user", "myItems", "borrowedItems"})
+//    @JsonBackReference
     private User user;
 
     @ManyToOne
+    @JsonIgnoreProperties({"bookings"})
     private Item item;
 
     public Booking(String startDate, String endDate, User user, Item item) {
