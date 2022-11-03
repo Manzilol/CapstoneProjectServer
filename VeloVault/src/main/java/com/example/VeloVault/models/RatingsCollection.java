@@ -1,5 +1,7 @@
 package com.example.VeloVault.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class RatingsCollection {
     private  int rating;
 
     @ManyToOne
+    @JsonIgnoreProperties({"ratings"})
     @JoinColumn(name = "itemId", nullable = false)
     private Item item;
 
