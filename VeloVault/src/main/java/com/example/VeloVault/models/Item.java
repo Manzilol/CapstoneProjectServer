@@ -1,9 +1,10 @@
 package com.example.VeloVault.models;
 
+import com.example.VeloVault.repositories.BookingRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 //@Table(name = "items")
 public abstract class Item {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -106,5 +108,14 @@ public abstract class Item {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getBookingListSize(){
+        return bookings.size();
+    }
+
+    public void rentItem(User user, Item item, String startDate, String endDate, BookingRepository bookingRepository){
+        bookingRepository.save(new Booking(startDate, endDate, user, item));
+//        Booking booking = new Booking(startDate, endDate, user, item);
     }
 }
