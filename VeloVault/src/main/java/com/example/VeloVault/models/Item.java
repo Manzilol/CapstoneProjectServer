@@ -41,6 +41,11 @@ public abstract class Item {
     @OneToMany(mappedBy = "item")
     private List<Booking> bookings;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+
 
     public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user) {
         this.name = name;
@@ -112,6 +117,14 @@ public abstract class Item {
 
     public int getBookingListSize(){
         return bookings.size();
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public void rentItem(User user, Item item, String startDate, String endDate, BookingRepository bookingRepository){
