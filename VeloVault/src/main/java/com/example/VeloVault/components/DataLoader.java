@@ -29,6 +29,12 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     RatingRepository ratingRepository;
 
+    @Autowired
+    CategoryRepository categoryRepository;
+
+    @Autowired
+    SubCategoryRepository subCategoryRepository;
+
 
     public DataLoader() {
     }
@@ -130,5 +136,28 @@ public class DataLoader implements ApplicationRunner {
 
         RatingsCollection rating1 = new RatingsCollection(5, bag1);
         ratingRepository.save(rating1);
+
+
+        Category camping = new Category("Camping",null, );
+        categoryRepository.save(camping);
+
+        SubCategory tent = new SubCategory("Tent", camping);
+        subCategoryRepository.save(tent);
+
+        Category bag = new Category("Bag",null );
+        categoryRepository.save(bag);
+
+        Category bike = new Category("Bike",null );
+        categoryRepository.save(bike);
+
+        Category clothing = new Category("Clothing",null );
+        categoryRepository.save(clothing);
+
+        Category cooking = new Category("Cooking",null, );
+        categoryRepository.save(cooking);
+
+        Category electronic = new Category("Electronic",null, );
+        categoryRepository.save(electronic);
+
     }
 }

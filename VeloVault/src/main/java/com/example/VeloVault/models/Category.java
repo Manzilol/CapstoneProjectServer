@@ -21,10 +21,14 @@ public class Category {
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Item> itemId;
 
+    @JsonIgnoreProperties({"category"})
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private List<SubCategory> subCategoryId;
 
-    public Category(String categoryName, List<Item> itemId) {
+    public Category(String categoryName, List<Item> itemId, List<SubCategory> subCategoryId) {
         this.categoryName = categoryName;
         this.itemId = itemId;
+        this.subCategoryId = subCategoryId;
     }
 
     public Category() {
@@ -52,5 +56,13 @@ public class Category {
 
     public void setItemId(List<Item> itemId) {
         this.itemId = itemId;
+    }
+
+    public List<SubCategory> getSubCategoryId() {
+        return subCategoryId;
+    }
+
+    public void setSubCategoryId(List<SubCategory> subCategoryId) {
+        this.subCategoryId = subCategoryId;
     }
 }
