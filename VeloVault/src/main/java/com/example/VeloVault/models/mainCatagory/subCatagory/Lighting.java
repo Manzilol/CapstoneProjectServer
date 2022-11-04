@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Electronic;
 
@@ -16,8 +17,8 @@ public class Lighting extends Electronic {
     @Column(name = "lightingType")
     private String lightingType;
 
-    public Lighting(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, int lumens, String lightingType) {
-        super(name, brand, ratings, comments, user, rechargeable);
+    public Lighting(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, int lumens, String lightingType, Category category) {
+        super(name, brand, ratings, comments, user, rechargeable, category);
         this.lumens = lumens;
         this.lightingType = lightingType;
     }

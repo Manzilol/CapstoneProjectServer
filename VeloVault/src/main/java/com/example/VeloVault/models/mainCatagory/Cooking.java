@@ -1,6 +1,7 @@
 package com.example.VeloVault.models.mainCatagory;
 
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
 
@@ -14,8 +15,8 @@ public abstract class Cooking extends Item {
     @Column(name = "weight")
     private int weight;
 
-    public Cooking(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight) {
-        super(name, brand, ratings, comments, user);
+    public Cooking(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, Category category) {
+        super(name, brand, ratings, comments, user, category);
         this.weight = weight;
     }
 

@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Cooking;
 
@@ -16,8 +17,8 @@ public class Crockery extends Cooking {
     @Column(name = "capacity")
     private int capacity;
 
-    public Crockery(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, int capacity) {
-        super(name, brand, ratings, comments, user, weight);
+    public Crockery(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, int capacity, Category category) {
+        super(name, brand, ratings, comments, user, weight, category);
         this.diameter = diameter;
         this.capacity = capacity;
     }

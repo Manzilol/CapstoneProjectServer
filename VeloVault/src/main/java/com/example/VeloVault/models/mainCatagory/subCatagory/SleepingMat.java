@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Camping;
 
@@ -19,8 +20,8 @@ public class SleepingMat extends Camping {
     @Column(name = "season")
     private String season;
 
-    public SleepingMat(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int thickness, String packSize, String season) {
-        super(name, brand, ratings, comments, user, weight);
+    public SleepingMat(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int thickness, String packSize, String season, Category category) {
+        super(name, brand, ratings, comments, user, weight, category);
         this.thickness = thickness;
         this.packSize = packSize;
         this.season = season;

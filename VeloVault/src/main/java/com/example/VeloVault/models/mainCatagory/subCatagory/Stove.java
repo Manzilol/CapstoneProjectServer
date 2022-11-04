@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Cooking;
 
@@ -19,8 +20,8 @@ public class Stove extends Cooking {
     @Column(name = "allInOne")
     private boolean allInOne;
 
-    public Stove(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, String fuelType, boolean allInOne) {
-        super(name, brand, ratings, comments, user, weight);
+    public Stove(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, String fuelType, boolean allInOne, Category category) {
+        super(name, brand, ratings, comments, user, weight, category);
         this.diameter = diameter;
         this.fuelType = fuelType;
         this.allInOne = allInOne;

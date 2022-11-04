@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory;
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.Item;
 import com.example.VeloVault.models.User;
 
@@ -14,8 +15,8 @@ public abstract class Bike extends Item {
     private String size;
 
 
-    public Bike(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size) {
-        super(name, brand, ratings, comments, user);
+    public Bike(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, Category category) {
+        super(name, brand, ratings, comments, user, category);
         this.size = size;
 
     }

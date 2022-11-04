@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Bike;
 
@@ -13,8 +14,8 @@ public class Road extends Bike {
     @Column(name = "brakeType")
     private String brakeType;
 
-    public Road(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, String brakeType) {
-        super(name, brand, ratings, comments, user, size);
+    public Road(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, String brakeType, Category category) {
+        super(name, brand, ratings, comments, user, size, category);
         this.brakeType = brakeType;
     }
 

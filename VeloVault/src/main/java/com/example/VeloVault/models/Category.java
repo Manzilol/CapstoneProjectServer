@@ -4,6 +4,7 @@ package com.example.VeloVault.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,16 +20,25 @@ public class Category {
 
     @JsonIgnoreProperties({"category"})
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private List<Item> itemId;
+    private List<Item> items;
 
     @JsonIgnoreProperties({"category"})
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private List<SubCategory> subCategoryId;
+    private List<SubCategory> subCategorys;
 
-    public Category(String categoryName, List<Item> itemId, List<SubCategory> subCategoryId) {
+    public Category(String categoryName, List<Item> items, List<SubCategory> subCategorys) {
         this.categoryName = categoryName;
-        this.itemId = itemId;
-        this.subCategoryId = subCategoryId;
+        if (items == null) {
+            this.items = new ArrayList<>();
+        } else {
+            this.items = items;
+        }
+
+        if(subCategorys ==  null ){
+            this.subCategorys = new ArrayList<>();
+        } else {
+            this.subCategorys = subCategorys;
+        }
     }
 
     public Category() {
@@ -50,19 +60,20 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public List<Item> getItemId() {
-        return itemId;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setItemId(List<Item> itemId) {
-        this.itemId = itemId;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
-    public List<SubCategory> getSubCategoryId() {
-        return subCategoryId;
+    public List<SubCategory> getSubCategorys() {
+        return this.subCategorys;
     }
 
-    public void setSubCategoryId(List<SubCategory> subCategoryId) {
-        this.subCategoryId = subCategoryId;
+    public void setSubCategorys(List<SubCategory> subCategorys) {
+        this.subCategorys = subCategorys;
     }
+
 }

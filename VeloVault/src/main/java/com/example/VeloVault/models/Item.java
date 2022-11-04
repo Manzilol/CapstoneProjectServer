@@ -47,13 +47,14 @@ public abstract class Item {
 
 
 
-    public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user) {
+    public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user, Category category) {
         this.name = name;
         this.brand = brand;
         this.ratings = new ArrayList<>();
         this.comments = new ArrayList<>();
         this.bookings = new ArrayList<>();
         this.user = user;
+        this.category = category;
     }
 
     public Item() {
