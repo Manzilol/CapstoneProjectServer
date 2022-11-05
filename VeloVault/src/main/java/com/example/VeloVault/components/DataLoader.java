@@ -10,6 +10,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+
 @Profile("!test")
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -39,7 +41,7 @@ public class DataLoader implements ApplicationRunner {
     public DataLoader() {
     }
 
-    public void run(ApplicationArguments args){
+    public void run(ApplicationArguments args) throws ParseException {
 
         User user1 = new User("Steve", "steve@bike.com");
         userRepository.save(user1);
@@ -102,7 +104,7 @@ public class DataLoader implements ApplicationRunner {
         Item lighting1 = new Lighting("super bright", "maglite", null, null, user1, true, 1000, "LED", electronic);
         itemRepository.save(lighting1);
 
-        Booking booking6 = new Booking("12/03/2023", "20?03", user2, lighting1);
+        Booking booking6 = new Booking("12/03/2023", "20/03/2023", user2, lighting1);
         bookingRepository.save(booking6);
 
         Item powerbank1 = new PowerBank("banksy", "electros", null, null, user1, true, 1000, "10x10x2", electronic);

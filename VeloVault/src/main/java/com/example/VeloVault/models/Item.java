@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -128,7 +129,7 @@ public abstract class Item {
         this.category = category;
     }
 
-    public void rentItem(User user, Item item, String startDate, String endDate, BookingRepository bookingRepository){
+    public void rentItem(User user, Item item, Date startDate, Date endDate, BookingRepository bookingRepository){
         bookingRepository.save(new Booking(startDate, endDate, user, item));
 //        Booking booking = new Booking(startDate, endDate, user, item);
     }
