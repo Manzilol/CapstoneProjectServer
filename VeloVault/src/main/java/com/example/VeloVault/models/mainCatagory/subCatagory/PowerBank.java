@@ -1,6 +1,7 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
 import com.example.VeloVault.models.Category;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Electronic;
 
@@ -17,8 +18,8 @@ public class PowerBank extends Electronic {
     @Column(name = "dimensions")
     private String dimensions;
 
-    public PowerBank(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, int capacity, String dimensions, Category category) {
-        super(name, brand, ratings, comments, user, rechargeable, category);
+    public PowerBank(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, int capacity, String dimensions, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, rechargeable, category, subCategory);
         this.capacity = capacity;
         this.dimensions = dimensions;
     }

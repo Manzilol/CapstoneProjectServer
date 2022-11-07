@@ -2,6 +2,7 @@ package com.example.VeloVault.models.mainCatagory.subCatagory;
 
 import com.example.VeloVault.Enums.LightingType;
 import com.example.VeloVault.models.Category;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Electronic;
 
@@ -21,8 +22,8 @@ public class Lighting extends Electronic {
     @Enumerated(value = EnumType.STRING)
     private LightingType lightingType;
 
-    public Lighting(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, int lumens, LightingType lightingType, Category category) {
-        super(name, brand, ratings, comments, user, rechargeable, category);
+    public Lighting(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, int lumens, LightingType lightingType, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, rechargeable, category, subCategory);
         this.lumens = lumens;
         this.lightingType = lightingType;
     }

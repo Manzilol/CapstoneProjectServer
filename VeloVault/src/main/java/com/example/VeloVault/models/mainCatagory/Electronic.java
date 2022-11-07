@@ -4,6 +4,7 @@ package com.example.VeloVault.models.mainCatagory;
 
 import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.Item;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 
 import javax.persistence.Column;
@@ -16,8 +17,8 @@ public abstract class Electronic extends Item {
     @Column(name = "rechargeable")
     private boolean rechargeable;
 
-    public Electronic(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, Category category) {
-        super(name, brand, ratings, comments, user, category);
+    public Electronic(String name, String brand, List<Integer> ratings, List<String> comments, User user, boolean rechargeable, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, category, subCategory);
         this.rechargeable = rechargeable;
     }
 

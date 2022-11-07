@@ -2,6 +2,7 @@ package com.example.VeloVault.models.mainCatagory.subCatagory;
 
 import com.example.VeloVault.Enums.FuelType;
 import com.example.VeloVault.models.Category;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Cooking;
 
@@ -24,8 +25,8 @@ public class Stove extends Cooking {
     @Column(name = "allInOne")
     private boolean allInOne;
 
-    public Stove(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, FuelType fuelType, boolean allInOne, Category category) {
-        super(name, brand, ratings, comments, user, weight, category);
+    public Stove(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, FuelType fuelType, boolean allInOne, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, weight, category, subCategory);
         this.diameter = diameter;
         this.fuelType = fuelType;
         this.allInOne = allInOne;

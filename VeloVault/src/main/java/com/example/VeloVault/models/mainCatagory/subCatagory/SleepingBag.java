@@ -3,6 +3,7 @@ package com.example.VeloVault.models.mainCatagory.subCatagory;
 import com.example.VeloVault.Enums.InsulationType;
 import com.example.VeloVault.Enums.SeasonType;
 import com.example.VeloVault.models.Category;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Camping;
 
@@ -29,8 +30,8 @@ public class SleepingBag extends Camping {
     @Column(name = "packSize")
     private String packSize;
 
-    public SleepingBag(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, InsulationType insulationType, int comfortRating, SeasonType seasonType, String packSize, Category category) {
-        super(name, brand, ratings, comments, user, weight, category);
+    public SleepingBag(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, InsulationType insulationType, int comfortRating, SeasonType seasonType, String packSize, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, weight, category, subCategory);
         this.insulationType = insulationType;
         this.comfortRating = comfortRating;
         this.seasonType = seasonType;
