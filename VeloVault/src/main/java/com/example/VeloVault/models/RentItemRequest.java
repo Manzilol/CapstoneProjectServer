@@ -4,9 +4,11 @@ import java.util.Date;
 
 public class RentItemRequest {
     private long itemId;
-    private long userId;
+    private String fireBaseId;
     private Date startDate;
     private Date endDate;
+
+    public RentItemRequest(){}
 
     public long getItemId() {
         return itemId;
@@ -16,12 +18,12 @@ public class RentItemRequest {
         this.itemId = itemId;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getFireBaseId() {
+        return fireBaseId;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setFireBaseId(String fireBaseId) {
+        this.fireBaseId = fireBaseId;
     }
 
     public Date getStartDate() {
@@ -39,4 +41,5 @@ public class RentItemRequest {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
+
 }

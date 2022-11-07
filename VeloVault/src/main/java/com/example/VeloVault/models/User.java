@@ -10,18 +10,15 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String fireBaseId;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "email")
     private String email;
-
-    @Column (name = "firebaseId")
-    private String firebaseId;
 
     @JsonIgnoreProperties({"user"})
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -31,36 +28,28 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> borrowedItems;
 
-    public User(String name, String email, String firebaseId) {
+    public User(String fireBaseId, String name, String email) {
+        this.fireBaseId = fireBaseId;
         this.name = name;
         this.email = email;
         this.myItems = new ArrayList<>();
         this.borrowedItems = new ArrayList<>();
-        this.firebaseId = firebaseId;
     }
 
     public User() {
 
     }
 
-    public Long getId() {
-        return id;
+    public String getFireBaseId() {
+        return fireBaseId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFireBaseId(String fireBaseId) {
+        this.fireBaseId = fireBaseId;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getFirebaseId() {
-        return firebaseId;
-    }
-
-    public void setFirebaseId(String firebaseId) {
-        this.firebaseId = firebaseId;
     }
 
     public void setName(String name) {

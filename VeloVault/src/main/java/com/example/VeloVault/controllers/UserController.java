@@ -19,13 +19,14 @@ public class UserController {
     public List<User> getAllUsers(){ return userRepository.findAll();}
 
     @PostMapping(value = "/users")
-    public ResponseEntity postUser(@RequestBody User user){
+    public ResponseEntity<User> postUser(@RequestBody User user){
+        System.out.println(user.getFireBaseId());
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @GetMapping(value="/users/{id}")
-    public ResponseEntity getUser(@PathVariable Long id){
+    public ResponseEntity getUser(@PathVariable String id){
         return new ResponseEntity<>(userRepository.findById(id), HttpStatus.OK);
     }
 }
