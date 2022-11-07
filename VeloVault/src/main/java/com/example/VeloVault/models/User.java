@@ -20,6 +20,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column (name = "firebaseId")
+    private String firebaseId;
+
     @JsonIgnoreProperties({"user"})
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> myItems;
@@ -28,11 +31,12 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> borrowedItems;
 
-    public User(String name, String email) {
+    public User(String name, String email, String firebaseId) {
         this.name = name;
         this.email = email;
         this.myItems = new ArrayList<>();
         this.borrowedItems = new ArrayList<>();
+        this.firebaseId = firebaseId;
     }
 
     public User() {
@@ -49,6 +53,14 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public String getFirebaseId() {
+        return firebaseId;
+    }
+
+    public void setFirebaseId(String firebaseId) {
+        this.firebaseId = firebaseId;
     }
 
     public void setName(String name) {

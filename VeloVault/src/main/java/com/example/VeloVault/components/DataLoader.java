@@ -41,11 +41,14 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 
-        User user1 = new User("Steve", "steve@bike.com");
+        User user1 = new User("Manzi", "stewartmanzi@gmail.com", "UE2tQsSbwpgd8Do7N5yjRJV5YjG3");
         userRepository.save(user1);
 
-        User user2 = new User("John", "wkerjgh");
+        User user2 = new User("Bruce", "brucejohnston@ymail.com", "n2AioE8kjGfy0ix37LCfOK1JTiI3");
         userRepository.save(user2);
+
+        User user3 = new User("Helen Langridge", "langridge.helen@outlook.com", "sXNvyuZVU0RlpiysqjElloPrXhZ2");
+        userRepository.save(user3);
 
         Category camping = new Category("Camping",null, null);
         categoryRepository.save(camping);
@@ -69,7 +72,7 @@ public class DataLoader implements ApplicationRunner {
         categoryRepository.save(electronic);
 
 
-        Item tent1 = new Tent("SNuggleZone", "cosyTime", null, null, user1, 2000, 2, "30cm x 30cm", true, "poles", camping);
+        Item tent1 = new Tent("SNuggleZone", "cosyTime", null, null, user3, 2000, 2, "30cm x 30cm", true, "poles", camping);
         itemRepository.save(tent1);
 
         Booking booking1 = new Booking("10/12/2020", "15/12/2020", user1, tent1);
@@ -81,7 +84,7 @@ public class DataLoader implements ApplicationRunner {
         Booking booking2 = new Booking("12/12/2022", "24/12/2022", user1, insulated1);
         bookingRepository.save(booking2);
 
-        Item waterproof1 = new Waterproof("Jacket", "Patagonia", null, null, user1, "L", "10000mm", clothing);
+        Item waterproof1 = new Waterproof("Jacket", "Patagonia", null, null, user3, "L", "10000mm", clothing);
         itemRepository.save(waterproof1);
 
         Booking booking3 = new Booking("03/03/2022", "07/03/2022", user2, waterproof1);
