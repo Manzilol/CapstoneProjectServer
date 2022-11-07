@@ -31,7 +31,7 @@ public class BookingController {
     @GetMapping(value = "/bookings")
     public List<Booking> getAllBookings(){ return bookingRepository.findAll();}
 
-    @GetMapping(value = "/booking/{id}")
+    @GetMapping(value = "/bookings/{id}")
     public Booking getBookingById(@PathVariable("id") Long id){
         Optional<Booking> booking = bookingRepository.findById(id);
         return booking.isPresent() ? booking.get() : null;
