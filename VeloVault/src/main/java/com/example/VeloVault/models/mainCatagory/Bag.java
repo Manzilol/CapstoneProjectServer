@@ -3,6 +3,7 @@ package com.example.VeloVault.models.mainCatagory;
 import com.example.VeloVault.Enums.BagLocationType;
 import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.Item;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 
 import javax.persistence.Column;
@@ -21,8 +22,8 @@ public class Bag extends Item {
     @Column(name = "capacity")
     private int capacity;
 
-    public Bag(String name, String brand, List<Integer> ratings, List<String> comments, User user, BagLocationType bagLocationType, int capacity, Category category) {
-        super(name, brand, ratings, comments, user, category);
+    public Bag(String name, String brand, List<Integer> ratings, List<String> comments, User user, BagLocationType bagLocationType, int capacity, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, category, subCategory);
         this.bagLocationType = bagLocationType;
         this.capacity = capacity;
     }

@@ -2,6 +2,7 @@ package com.example.VeloVault.models.mainCatagory.subCatagory;
 
 import com.example.VeloVault.Enums.BrakeType;
 import com.example.VeloVault.models.Category;
+import com.example.VeloVault.models.SubCategory;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Bike;
 
@@ -18,8 +19,8 @@ public class Road extends Bike {
     @Enumerated(value = EnumType.STRING)
     private BrakeType brakeType;
 
-    public Road(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, BrakeType brakeType, Category category) {
-        super(name, brand, ratings, comments, user, size, category);
+    public Road(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, BrakeType brakeType, Category category, SubCategory subCategory) {
+        super(name, brand, ratings, comments, user, size, category, subCategory);
         this.brakeType = brakeType;
     }
 

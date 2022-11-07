@@ -46,9 +46,11 @@ public abstract class Item {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @ManyToOne
+    @JoinColumn(name = "sub_category_id")
+    private SubCategory subCategory;
 
-
-    public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user, Category category) {
+    public Item(String name, String brand, List<Integer> ratings, List<String> comments, User user, Category category, SubCategory subCategory) {
         this.name = name;
         this.brand = brand;
         this.ratings = new ArrayList<>();
@@ -56,6 +58,7 @@ public abstract class Item {
         this.bookings = new ArrayList<>();
         this.user = user;
         this.category = category;
+        this.subCategory = subCategory;
     }
 
     public Item() {
@@ -132,5 +135,13 @@ public abstract class Item {
     public void rentItem(User user, Item item, Date startDate, Date endDate, BookingRepository bookingRepository){
         bookingRepository.save(new Booking(startDate, endDate, user, item));
 //        Booking booking = new Booking(startDate, endDate, user, item);
+    }
+
+    public SubCategory getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
     }
 }
