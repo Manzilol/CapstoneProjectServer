@@ -1,20 +1,24 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.Enums.InsulationType;
 import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Clothing;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.List;
 
 @Entity
 public class Insulated extends Clothing {
 
     @Column(name = "insulationType")
-    private String insulationType;
+    @Enumerated(value = EnumType.STRING)
+    private InsulationType insulationType;
 
-    public Insulated(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, String insulationType, Category category) {
+    public Insulated(String name, String brand, List<Integer> ratings, List<String> comments, User user, String size, InsulationType insulationType, Category category) {
         super(name, brand, ratings, comments, user, size, category);
         this.insulationType = insulationType;
     }
@@ -22,11 +26,11 @@ public class Insulated extends Clothing {
     public Insulated() {
     }
 
-    public String getInsulationType() {
+    public InsulationType getInsulationType() {
         return insulationType;
     }
 
-    public void setInsulationType(String insulationType) {
+    public void setInsulationType(InsulationType insulationType) {
         this.insulationType = insulationType;
     }
 }

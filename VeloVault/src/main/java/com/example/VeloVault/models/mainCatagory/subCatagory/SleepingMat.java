@@ -1,11 +1,14 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.Enums.SeasonType;
 import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Camping;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.List;
 
 @Entity
@@ -17,14 +20,15 @@ public class SleepingMat extends Camping {
     @Column(name = "packSize")
     private String packSize;
 
-    @Column(name = "season")
-    private String season;
+    @Column(name = "season_type")
+    @Enumerated(value = EnumType.STRING)
+    private SeasonType seasonType;
 
-    public SleepingMat(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int thickness, String packSize, String season, Category category) {
+    public SleepingMat(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int thickness, String packSize, SeasonType seasonType, Category category) {
         super(name, brand, ratings, comments, user, weight, category);
         this.thickness = thickness;
         this.packSize = packSize;
-        this.season = season;
+        this.seasonType = seasonType;
     }
 
     public SleepingMat() {
@@ -46,11 +50,11 @@ public class SleepingMat extends Camping {
         this.packSize = packSize;
     }
 
-    public String getSeason() {
-        return season;
+    public SeasonType getSeasonType() {
+        return seasonType;
     }
 
-    public void setSeason(String season) {
-        this.season = season;
+    public void setSeasonType(SeasonType seasonType) {
+        this.seasonType = seasonType;
     }
 }

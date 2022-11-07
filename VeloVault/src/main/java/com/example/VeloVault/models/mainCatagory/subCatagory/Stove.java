@@ -1,11 +1,14 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.Enums.FuelType;
 import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Cooking;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.List;
 
 @Entity
@@ -15,12 +18,13 @@ public class Stove extends Cooking {
     private int diameter;
 
     @Column(name = "fuelType")
-    private String fuelType;
+    @Enumerated(value = EnumType.STRING)
+    private FuelType fuelType;
 
     @Column(name = "allInOne")
     private boolean allInOne;
 
-    public Stove(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, String fuelType, boolean allInOne, Category category) {
+    public Stove(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int diameter, FuelType fuelType, boolean allInOne, Category category) {
         super(name, brand, ratings, comments, user, weight, category);
         this.diameter = diameter;
         this.fuelType = fuelType;
@@ -38,11 +42,11 @@ public class Stove extends Cooking {
         this.diameter = diameter;
     }
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 

@@ -1,5 +1,6 @@
 package com.example.VeloVault.models.mainCatagory.subCatagory;
 
+import com.example.VeloVault.Enums.PoleType;
 import com.example.VeloVault.models.Category;
 import com.example.VeloVault.models.User;
 import com.example.VeloVault.models.mainCatagory.Camping;
@@ -23,9 +24,10 @@ public class Tent extends Camping {
     private boolean footprint;
 
     @Column(name = "poleType")
-    private String poleType;
+    @Enumerated(value = EnumType.STRING)
+    private PoleType poleType;
 
-    public Tent(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int capacity, String packSize, boolean footprint, String poleType, Category category) {
+    public Tent(String name, String brand, List<Integer> ratings, List<String> comments, User user, int weight, int capacity, String packSize, boolean footprint, PoleType poleType, Category category) {
         super(name, brand, ratings, comments, user, weight, category);
         this.capacity = capacity;
         this.packSize = packSize;
@@ -61,11 +63,11 @@ public class Tent extends Camping {
         this.footprint = footprint;
     }
 
-    public String getPoleType() {
+    public PoleType getPoleType() {
         return poleType;
     }
 
-    public void setPoleType(String poleType) {
+    public void setPoleType(PoleType poleType) {
         this.poleType = poleType;
     }
 }
