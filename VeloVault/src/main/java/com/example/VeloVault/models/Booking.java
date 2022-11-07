@@ -30,7 +30,7 @@ public class Booking {
     private User user;
 
     @ManyToOne
-    @JsonIgnoreProperties({"bookings"})
+    @JsonIgnoreProperties({"bookings", "category", "subCategory"})
     private Item item;
 
     public Booking(Date startDate, Date endDate, User user, Item item) {

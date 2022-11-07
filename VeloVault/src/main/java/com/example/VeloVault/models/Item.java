@@ -2,7 +2,6 @@ package com.example.VeloVault.models;
 
 import com.example.VeloVault.repositories.BookingRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -42,10 +41,12 @@ public abstract class Item {
     @OneToMany(mappedBy = "item")
     private List<Booking> bookings;
 
+    @JsonIgnoreProperties({"items", "subCategorys"})
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @JsonIgnoreProperties({"items"})
     @ManyToOne
     @JoinColumn(name = "sub_category_id")
     private SubCategory subCategory;

@@ -24,7 +24,7 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> myItems;
 
-    @JsonIgnoreProperties({"user"})
+    @JsonIgnoreProperties({"user", "bookings"})
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> borrowedItems;
 

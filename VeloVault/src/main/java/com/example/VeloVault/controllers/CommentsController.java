@@ -5,10 +5,7 @@ import com.example.VeloVault.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,17 @@ public class CommentsController {
     public ResponseEntity postComment(@RequestBody CommentsCollection commentsCollection){
         commentRepository.save(commentsCollection);
         return new ResponseEntity<>(commentsCollection, HttpStatus.CREATED);
-    };
+    }
+
+    @GetMapping(value = "/comments/{id}")
+    public ResponseEntity getComment(@PathVariable Long id){
+        return new ResponseEntity<>(commentRepository.findById(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/comments/{id}")
+    public ResponseEntity deleteComment(@PathVariable Long id){
+        commentRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 
 }

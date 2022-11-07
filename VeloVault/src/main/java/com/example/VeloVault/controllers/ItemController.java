@@ -5,10 +5,7 @@ import com.example.VeloVault.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +23,17 @@ public class ItemController {
         itemRepository.save(item);
         return new ResponseEntity<>(item, HttpStatus.CREATED);
     }
+
+    @GetMapping(value = "/items/{id}")
+    public ResponseEntity getItem(@PathVariable Long id){
+        return new ResponseEntity<>(itemRepository.findById(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/items/{id}")
+    public ResponseEntity deleteItem(@PathVariable Long id){
+        itemRepository.deleteById(id);
+        return new ResponseEntity(id, HttpStatus.OK);
+    }
+
+
 }
