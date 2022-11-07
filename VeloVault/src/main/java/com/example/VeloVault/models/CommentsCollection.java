@@ -17,7 +17,7 @@ public class CommentsCollection {
     private String comment;
 
     @ManyToOne
-    @JsonIgnoreProperties({"comments"})
+    @JsonIgnoreProperties({"comments", "category", "subCategory"})
     @JoinColumn(name = "itemId", nullable = false)
     private Item item;
 

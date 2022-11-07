@@ -18,7 +18,7 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
 
-    @JsonIgnoreProperties({"category"})
+    @JsonIgnoreProperties({"category", "subCategory"})
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Item> items;
 

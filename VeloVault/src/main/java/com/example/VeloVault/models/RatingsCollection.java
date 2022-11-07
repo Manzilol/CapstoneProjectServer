@@ -16,7 +16,7 @@ public class RatingsCollection {
     private  int rating;
 
     @ManyToOne
-    @JsonIgnoreProperties({"ratings"})
+    @JsonIgnoreProperties({"ratings", "category", "subCategory"})
     @JoinColumn(name = "itemId", nullable = false)
     private Item item;
 
