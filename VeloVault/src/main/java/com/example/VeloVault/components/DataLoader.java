@@ -44,14 +44,14 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws ParseException {
 
-        User user1 = new User("Manzi", "stewartmanzi@gmail.com", "UE2tQsSbwpgd8Do7N5yjRJV5YjG3");
+        User user1 = new User("UE2tQsSbwpgd8Do7N5yjRJV5YjG3", "Manzi", "stewartmanzi@gmail.com");
         userRepository.save(user1);
 
-        User user2 = new User("Bruce", "brucejohnston@ymail.com", "n2AioE8kjGfy0ix37LCfOK1JTiI3");
+        User user2 = new User("n2AioE8kjGfy0ix37LCfOK1JTiI3", "Bruce", "brucejohnston@ymail.com");
         userRepository.save(user2);
 
-        User user3 = new User("Helen Langridge", "langridge.helen@outlook.com", "sXNvyuZVU0RlpiysqjElloPrXhZ2");
-        userRepository.save(user3);
+//        User user3 = new User("sXNvyuZVU0RlpiysqjElloPrXhZ2", "Helen Langridge", "langridge.helen@outlook.com");
+//        userRepository.save(user3);
 
         Category camping = new Category("Camping",null, null);
         categoryRepository.save(camping);
@@ -74,8 +74,8 @@ public class DataLoader implements ApplicationRunner {
         Category electronic = new Category("Electronic",null, null);
         categoryRepository.save(electronic);
 
-
         Item tent1 = new Tent("SNuggleZone", "cosyTime", null, null, user3, 2000, 2, "30cm x 30cm", true, PoleType.POLES, camping);
+
         itemRepository.save(tent1);
 
         Booking booking1 = new Booking("10/12/2020", "15/12/2020", user1, tent1);

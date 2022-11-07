@@ -46,9 +46,9 @@ public class BookingController {
 
     @PostMapping(value = "/bookings")
     public ResponseEntity rentItem(@RequestBody RentItemRequest rentItemRequest){
-        Optional<User> user = userRepository.findById(rentItemRequest.getUserId());
+        Optional<User> user = userRepository.findById(rentItemRequest.getFireBaseId());
         if(!user.isPresent()) {
-            return new ResponseEntity<>(new ResponseMessage(false, "User " + rentItemRequest.getUserId() + " not found."), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ResponseMessage(false, "User " + rentItemRequest.getFireBaseId() + " not found."), HttpStatus.NOT_FOUND);
         }
         Optional<Item> item = itemRepository.findById(rentItemRequest.getItemId());
         if(!item.isPresent()) {
