@@ -19,7 +19,7 @@ public class ItemController {
     public List<Item> getAllItems(){ return itemRepository.findAll();}
 
     @PostMapping(value = "/items")
-    public ResponseEntity postItem(@RequestBody Item item){
+    public ResponseEntity<Item> postItem(@RequestBody Item item){
         itemRepository.save(item);
         return new ResponseEntity<>(item, HttpStatus.CREATED);
     }

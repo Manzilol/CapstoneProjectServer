@@ -1,15 +1,39 @@
 package com.example.VeloVault.models;
 
+import com.example.VeloVault.models.mainCatagory.Bag;
+import com.example.VeloVault.models.mainCatagory.subCatagory.*;
 import com.example.VeloVault.repositories.BookingRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+//include = JsonTypeInfo.As.EXISTING_PROPERTY,
+//property = "type"
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME )
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Tent.class, name = "tent"),
+        @JsonSubTypes.Type(value = Bag.class, name = "bag"),
+        @JsonSubTypes.Type(value = Waterproof.class, name = "waterproof"),
+        @JsonSubTypes.Type(value = Stove.class, name = "stove"),
+        @JsonSubTypes.Type(value = SleepingMat.class, name = "sleeping_mat"),
+        @JsonSubTypes.Type(value = SleepingBag.class, name = "sleeping_bag"),
+        @JsonSubTypes.Type(value = Road.class, name = "road"),
+        @JsonSubTypes.Type(value = PowerBank.class, name = "power_bank"),
+        @JsonSubTypes.Type(value = OffRoad.class, name = "off_road"),
+        @JsonSubTypes.Type(value = Navigation.class, name = "navigation"),
+        @JsonSubTypes.Type(value = Lighting.class, name = "lighting"),
+        @JsonSubTypes.Type(value = Insulated.class, name = "insulated"),
+        @JsonSubTypes.Type(value = Crockery.class, name = "crockery"),
+        @JsonSubTypes.Type(value = BivvyBag.class, name = "bivvy_bag"),
+
+})
+
 //@Table(name = "items")
 public abstract class Item {
 
@@ -121,9 +145,9 @@ public abstract class Item {
         this.user = user;
     }
 
-    public int getBookingListSize(){
-        return bookings.size();
-    }
+//    public int getBookingListSize(){
+//        return bookings.size();
+//    }
 
     public Category getCategory() {
         return category;
