@@ -70,7 +70,7 @@ public abstract class Item {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @JsonIgnoreProperties({"items"})
+    @JsonIgnoreProperties({"items", "category"})
     @ManyToOne
     @JoinColumn(name = "sub_category_id")
     private SubCategory subCategory;
