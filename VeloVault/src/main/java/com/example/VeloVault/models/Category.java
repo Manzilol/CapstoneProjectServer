@@ -24,9 +24,9 @@ public class Category {
 
     @JsonIgnoreProperties({"category"})
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private List<SubCategory> subCategorys;
+    private List<SubCategory> subCategories;
 
-    public Category(String categoryName, List<Item> items, List<SubCategory> subCategorys) {
+    public Category(String categoryName, List<Item> items, List<SubCategory> subCategories) {
         this.categoryName = categoryName;
         if (items == null) {
             this.items = new ArrayList<>();
@@ -34,10 +34,10 @@ public class Category {
             this.items = items;
         }
 
-        if(subCategorys ==  null ){
-            this.subCategorys = new ArrayList<>();
+        if(subCategories ==  null ){
+            this.subCategories = new ArrayList<>();
         } else {
-            this.subCategorys = subCategorys;
+            this.subCategories = subCategories;
         }
     }
 
@@ -68,12 +68,12 @@ public class Category {
         this.items = items;
     }
 
-    public List<SubCategory> getSubCategorys() {
-        return this.subCategorys;
+    public List<SubCategory> getSubCategories() {
+        return this.subCategories;
     }
 
-    public void setSubCategorys(List<SubCategory> subCategorys) {
-        this.subCategorys = subCategorys;
+    public void setSubCategories(List<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 
 }

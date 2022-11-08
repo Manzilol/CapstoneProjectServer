@@ -65,7 +65,7 @@ public abstract class Item {
     @OneToMany(mappedBy = "item")
     private List<Booking> bookings;
 
-    @JsonIgnoreProperties({"items", "subCategorys"})
+    @JsonIgnoreProperties({"items", "subCategories"})
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
